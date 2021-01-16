@@ -1,1 +1,3 @@
-# Diary-
+# DIARY
+
+Simple diary

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Diary
 {
@@ -23,14 +25,15 @@ namespace Diary
 
     public class Note
     {
-        public string name;
-        public string content;
-        public DateTime day;
+        public string name { get; set; }
+        public string content { get; set; }
+        public DateTime day { get; set; }
     }
 
     public class Account
     {
-        public string name;
-        public Note[] notes = new Note[0];
+        public string name { get; set; }
+        public List<Note> notes { get; set; }
     }
+
 }

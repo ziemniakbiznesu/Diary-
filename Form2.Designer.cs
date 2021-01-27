@@ -39,9 +39,6 @@ namespace Diary
             // 
             // NewAccountName
             // 
-            this.NewAccountName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewAccountName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NewAccountName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NewAccountName.ForeColor = System.Drawing.Color.Black;
             this.NewAccountName.Location = new System.Drawing.Point(12, 42);
@@ -148,7 +145,6 @@ namespace Diary
             this.Name = "Form2";
             this.Text = "Choose profile";
             this.Load += new System.EventHandler(this.Form2_Load);
-            //this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

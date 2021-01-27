@@ -11,42 +11,43 @@ namespace Diary
 {
     public partial class Form2 : Form
     {
-        readonly Form1 frm = null;
+        public Form1 menu;
 
-        public Form2(Form1 frm)
+        public Form2(Form1 tempForm1)
         {
+            menu = tempForm1;
             InitializeComponent();
-            this.frm = frm;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            NumberOfAccounts.Text = Form1.accounts.Length < 80
-                ? $"You have {Form1.accounts.Length} profiles"
-                : $"You have {Form1.accounts.Length} / 100 profiles";
-
             AccountsView.Items.Clear();
-            foreach (var a in Form1.accounts)
+            if (Data.accounts == null) return;
+            foreach (var account in Data.accounts)
             {
-                AccountsView.Items.Add(a.name);
+                AccountsView.Items.Add(account.name);
             }
+
+            NumberOfAccounts.Text = Data.accounts.Count < 80
+                ? $"You have {Data.accounts.Count} profiles"
+                : $"You have {Data.accounts.Count} / 100 profiles";
         }
 
         private void SubmitNewAccount_Click(object sender, EventArgs e)
         {
-            if (Form1.accounts.Length < 100 && NewAccountName.Text != "")
+            if (Data.accounts == null)
             {
-                List<Account> a = Form1.accounts.ToList();
-                a.Add(new Account { name = NewAccountName.Text});
-                Form1.accounts = a.ToArray();
-                AccountsView.Items.Add(Form1.accounts[^1].name);
-
-                NewAccountName.Text = "";
+                Data.accounts = new List<Account>();
             }
+            if (Data.accounts.Count >= 100 || NewAccountName.Text == "") return;
+            
+            Data.accounts.Add(new Account { name = NewAccountName.Text });
+            AccountsView.Items.Add(Data.accounts[^1].name);
 
-            NumberOfAccounts.Text = Form1.accounts.Length < 80
-                ? $"You have {Form1.accounts.Length} profiles"
-                : $"You have {Form1.accounts.Length} / 100 profiles";
+            NewAccountName.Text = "";
+            NumberOfAccounts.Text = Data.accounts.Count < 80
+                ? $"You have {Data.accounts.Count} profiles"
+                : $"You have {Data.accounts.Count} / 100 profiles";
         }
 
         private void ChoseAccountButton_Click(object sender, EventArgs e)
@@ -61,12 +62,13 @@ namespace Diary
         private void Form2_FormClosing(object sender, EventArgs e)
         {
             RefreshForm1();
+            Data.choosingAccount = false;
         }
 
         public void RefreshForm1()
         {
-            Form1.chosenAccount = AccountsView.Items.IndexOf(AccountsView.SelectedItems[0]);
-            frm.RefreshChoosenAccount();
+            Data.chosenAccount = AccountsView.Items.IndexOf(AccountsView.SelectedItems[0]);
+            menu.UpdateContent();
         }
 
     }

@@ -185,7 +185,7 @@ namespace Diary
         private System.Windows.Forms.Label NotesTextDisplay;
         private System.Windows.Forms.Button ReadEditButton;
         private System.Windows.Forms.Button NewDayButton;
-        private System.Windows.Forms.TextBox NewNoteName;
+        public System.Windows.Forms.TextBox NewNoteName;
     }
 }
 

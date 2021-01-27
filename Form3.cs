@@ -32,8 +32,8 @@ namespace Diary
 
         private void SaveDiaryButton_Click(object sender, EventArgs e)
         {
-            Form1.accounts[Form1.chosenAccount].notes[id].content = NotesEditDisplay.Text;
-            Form1.SaveFile();
+            Data.accounts[Data.chosenAccount].notes[id].content = NotesEditDisplay.Text;
+            Data.Save();
             this.Close();
         }
     }

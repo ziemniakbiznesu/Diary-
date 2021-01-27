@@ -13,7 +13,7 @@ namespace Diary
         public Form1 menu = new Form1();
 
         public static List<Account> accounts = new List<Account>();
-        public static int chosenAccount;
+        public static int chosenAccount = -1;
         public static bool choosingAccount = false;
 
         public void ChooseAccount()

@@ -13,20 +13,18 @@ namespace Diary
     {
         public Form1 menu;
 
-        public Form2(Form1 tempForm1)
+        public Form2(Form1 form1)
         {
-            menu = tempForm1;
             InitializeComponent();
+            menu = form1;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            AccountsView.Items.Clear();
             if (Data.accounts == null) return;
-            foreach (var account in Data.accounts)
-            {
-                AccountsView.Items.Add(account.name);
-            }
+
+            AccountsView.Items.Clear();
+            foreach (var account in Data.accounts) AccountsView.Items.Add(account.name);
 
             NumberOfAccounts.Text = Data.accounts.Count < 80
                 ? $"You have {Data.accounts.Count} profiles"
@@ -35,37 +33,36 @@ namespace Diary
 
         private void SubmitNewAccount_Click(object sender, EventArgs e)
         {
-            if (Data.accounts == null)
-            {
-                Data.accounts = new List<Account>();
-            }
+            if (Data.accounts == null) Data.accounts = new List<Account>();
             if (Data.accounts.Count >= 100 || NewAccountName.Text == "") return;
             
-            Data.accounts.Add(new Account { name = NewAccountName.Text });
-            AccountsView.Items.Add(Data.accounts[^1].name);
+            Data.accounts.Add(
+                new Account { name = NewAccountName.Text });
 
             NewAccountName.Text = "";
+            AccountsView.Items.Clear();
+            foreach (Account account in Data.accounts) AccountsView.Items.Add(account.name);
+
             NumberOfAccounts.Text = Data.accounts.Count < 80
                 ? $"You have {Data.accounts.Count} profiles"
                 : $"You have {Data.accounts.Count} / 100 profiles";
         }
 
         private void ChoseAccountButton_Click(object sender, EventArgs e)
-        { 
-            if (AccountsView.SelectedItems.Count > 0)
-            {
-                RefreshForm1();
-                this.Close();
-            }
+        {
+            if (AccountsView.SelectedItems.Count == 0) return;
+
+            UpdateForm1();
+            Close();
         }
 
         private void Form2_FormClosing(object sender, EventArgs e)
         {
-            RefreshForm1();
+            UpdateForm1();
             Data.choosingAccount = false;
         }
 
-        public void RefreshForm1()
+        public void UpdateForm1()
         {
             Data.chosenAccount = AccountsView.Items.IndexOf(AccountsView.SelectedItems[0]);
             menu.UpdateContent();

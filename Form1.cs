@@ -62,18 +62,15 @@ namespace Diary
 
         private void NewDayButton_Click(object sender, EventArgs e)
         {
-            if (NewNoteName.Text == "" || NewNoteName.Text.Length > 75) return;
+            if (NewNoteName.Text == "" || NewNoteName.Text.Length > 75 || Data.chosenAccount == -1) return;
+            if (Data.accounts[Data.chosenAccount].notes == null) Data.accounts[Data.chosenAccount].notes = new List<Note>();
 
-            if (Data.accounts[Data.chosenAccount].notes == null)
-                Data.accounts[Data.chosenAccount].notes = new List<Note> {
-                    new Note { name = NewNoteName.Text, content = " ", day = DateTime.Now }};
-            else
-                Data.accounts[Data.chosenAccount].notes.Add(
-                     new Note { name = NewNoteName.Text, content = " ", day = DateTime.Now });
+            Data.accounts[Data.chosenAccount].notes.Add(
+                new Note { name = NewNoteName.Text, content = " ", day = DateTime.Now });
 
             NewNoteName.Text = "";
             Days.Items.Clear();
-            foreach(Note note in Data.accounts[Data.chosenAccount].notes) Days.Items.Add(note.name);
+            foreach (Note note in Data.accounts[Data.chosenAccount].notes) Days.Items.Add(note.name);
         }
     }
 }

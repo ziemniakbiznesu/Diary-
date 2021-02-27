@@ -31,7 +31,7 @@ namespace Diary
             {
                 Console.WriteLine(e);
             }
-        }
+        } 
     }
 }
 

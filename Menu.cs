@@ -39,7 +39,7 @@ namespace Diary
             if (Data.ChoosingAccount) { return; }
 
             Account_choose chooseAcc = new Account_choose(this);
-            chooseAcc.Show();
+            chooseAcc.Show(); 
             Data.ChoosingAccount = true;
         }
 

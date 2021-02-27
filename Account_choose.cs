@@ -60,6 +60,5 @@ namespace Diary
             Data.ChosenAccount = AccountsView.Items.IndexOf(AccountsView.SelectedItems[0]);
             Menu.UpdateContent();
         }
-
     }
 }

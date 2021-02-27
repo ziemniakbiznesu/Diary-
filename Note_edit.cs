@@ -19,7 +19,7 @@ namespace Diary
             PathDisplay.Text = Title;
 
             DateDisplay.Text = $"{Day.Day}.{(Day.Month < 10 ? "0" : "")}{Day.Month}.{Day.Year}";
-            
+
             NotesEditDisplay.Text = Notes;
             this.Id = Id;
         }
@@ -35,7 +35,7 @@ namespace Diary
 
             account.Notes[Id].Content = NotesEditDisplay.Text;
             Data.Save();
-            Close();
+            Close(); 
         }
     }
 }

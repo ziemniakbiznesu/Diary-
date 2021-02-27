@@ -1,7 +1,7 @@
 ﻿
 namespace Diary
 {
-    partial class Form2
+    partial class Account_choose
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,8 @@ namespace Diary
             // 
             // NewAccountName
             // 
+            this.NewAccountName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewAccountName.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NewAccountName.ForeColor = System.Drawing.Color.Black;
             this.NewAccountName.Location = new System.Drawing.Point(12, 42);
@@ -129,7 +131,7 @@ namespace Diary
             this.ChoseAccountButton.UseVisualStyleBackColor = false;
             this.ChoseAccountButton.Click += new System.EventHandler(this.ChoseAccountButton_Click);
             // 
-            // Form2
+            // Account_choose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +144,7 @@ namespace Diary
             this.Controls.Add(this.SubmitNewAccount);
             this.Controls.Add(this.NewAccountName);
             this.ForeColor = System.Drawing.Color.White;
-            this.Name = "Form2";
+            this.Name = "Account_choose";
             this.Text = "Choose profile";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);

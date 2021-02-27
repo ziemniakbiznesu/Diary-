@@ -1,7 +1,7 @@
 ﻿
 namespace Diary
 {
-    partial class Form3
+    partial class Note_edit
     {
         /// <summary>
         /// Required designer variable.

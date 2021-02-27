@@ -1,7 +1,7 @@
 ﻿
 namespace Diary
 {
-    partial class Form1
+    partial class Menu
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace Diary
         /// </summary>
         public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.ChooseAccountButton = new System.Windows.Forms.Button();
             this.ChosenAccountDisplay = new System.Windows.Forms.Label();
             this.Days = new System.Windows.Forms.ListView();

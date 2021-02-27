@@ -19,21 +19,8 @@ namespace Diary
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Menu());
         }
-    }
-
-    public class Note
-    {
-        public string name { get; set; }
-        public string content { get; set; }
-        public DateTime day { get; set; }
-    }
-
-    public class Account
-    {
-        public string name { get; set; }
-        public List<Note> notes { get; set; }
     }
 
 }
